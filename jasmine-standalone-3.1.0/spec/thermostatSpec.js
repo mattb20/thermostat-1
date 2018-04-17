@@ -10,3 +10,4 @@ describe('Thermostat', function(){
     expect(thermostat.temperature).toEqual(21)
   })
 })
+function Thermostat() {
