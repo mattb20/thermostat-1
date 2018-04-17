@@ -21,4 +21,20 @@ describe('Thermostat', function(){
     }
     expect( function(){ thermostat.down(); } ).toThrow(new Error("minimum temperature reached"));
     })
+    it('has a default maximum temperature 25(powerSaving on)', function(){
+      var thermostat = new Thermostat();
+      expect(thermostat.maximumTemperature).toEqual(25)
+    })
+    it('changes to maximum temperature to 32 on powerSaving called(powerSaving off)', function(){
+      var thermostat = new Thermostat();
+      thermostat.powerSaving()
+      expect(thermostat.maximumTemperature).toEqual(32)
+    })
+    it('goes back to 25 if pressed againg 4 times cycle (powerSaving on)', function(){
+      var thermostat = new Thermostat();
+      for (var i = 0; i <= 3; i++) {
+      thermostat.powerSaving()
+      }
+      expect(thermostat.maximumTemperature).toEqual(25)
+    })
 })
