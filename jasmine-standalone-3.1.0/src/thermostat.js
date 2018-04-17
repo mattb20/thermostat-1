@@ -4,6 +4,9 @@ function Thermostat() {
   this.saver_switch = 1
 }
 Thermostat.prototype.up = function() {
+  if (this.temperature >= this.maximumTemperature)
+  throw new Error("maximum temperature reached")
+  else
   this.temperature += 1;
 }
 Thermostat.prototype.down = function() {

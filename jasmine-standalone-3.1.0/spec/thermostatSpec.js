@@ -54,6 +54,7 @@ describe('Thermostat', function(){
     })
     it('return high usage for 26', function(){
       var thermostat = new Thermostat();
+      thermostat.powerSaving()
       for (var i = 0; i <= 5; i++) {
       thermostat.up()
       }
@@ -63,4 +64,11 @@ describe('Thermostat', function(){
       var thermostat = new Thermostat();
       expect(thermostat.currentUsage()).toEqual('medium usage')
     })
+    it('throw error when max temp reached', function(){
+      var thermostat = new Thermostat();
+      for (var i = 0; i <= 4; i++) {
+        thermostat.up()
+      }
+      expect( function(){ thermostat.up(); } ).toThrow(new Error("maximum temperature reached"));
+      })
 })
