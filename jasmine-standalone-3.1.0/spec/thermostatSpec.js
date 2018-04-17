@@ -4,10 +4,14 @@ describe('Thermostat', function(){
     var thermostat = new Thermostat();
     expect(thermostat.temperature).toEqual(20)
   })
-  it('increse temperature', function(){
+  it('increase temperature', function(){
     var thermostat = new Thermostat();
     thermostat.up()
     expect(thermostat.temperature).toEqual(21)
   })
+  it('decrese temperature', function(){
+    var thermostat = new Thermostat();
+    thermostat.down()
+    expect(thermostat.temperature).toEqual(19)
+  })
 })
-function Thermostat() {
