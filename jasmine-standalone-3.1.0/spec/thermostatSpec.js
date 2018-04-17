@@ -37,4 +37,30 @@ describe('Thermostat', function(){
       }
       expect(thermostat.maximumTemperature).toEqual(25)
     })
+    it('resets temperature', function(){
+      var thermostat = new Thermostat();
+      for (var i = 0; i <= 3; i++) {
+      thermostat.down()
+      }
+      thermostat.reset()
+      expect(thermostat.temperature).toEqual(20)
+    })
+    it('return low usage for 16', function(){
+      var thermostat = new Thermostat();
+      for (var i = 0; i <= 3; i++) {
+      thermostat.down()
+      }
+      expect(thermostat.currentUsage()).toEqual('low usage')
+    })
+    it('return high usage for 26', function(){
+      var thermostat = new Thermostat();
+      for (var i = 0; i <= 5; i++) {
+      thermostat.up()
+      }
+      expect(thermostat.currentUsage()).toEqual('high usage')
+    })
+    it('return medium usage for 20', function(){
+      var thermostat = new Thermostat();
+      expect(thermostat.currentUsage()).toEqual('medium usage')
+    })
 })

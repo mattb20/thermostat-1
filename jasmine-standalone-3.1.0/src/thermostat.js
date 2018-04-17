@@ -20,3 +20,14 @@ Thermostat.prototype.powerSaving = function(){
   else
   this.maximumTemperature = 32
 }
+Thermostat.prototype.reset = function() {
+  this.temperature = 20;
+}
+Thermostat.prototype.currentUsage = function() {
+  if (this.temperature < 18)
+  return "low usage"
+  else if (18 < this.temperature && this.temperature < 25)
+  return "medium usage"
+  else
+  return "high usage"
+}
