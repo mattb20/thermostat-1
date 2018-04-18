@@ -34,3 +34,9 @@ Thermostat.prototype.currentUsage = function() {
   else
   return "high usage"
 }
+Thermostat.prototype.powerSavingStatus = function() {
+  if (this.maximumTemperature === 25)
+  return 'On'
+  else
+  return 'Off'
+}

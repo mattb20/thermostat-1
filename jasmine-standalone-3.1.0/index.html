@@ -1,13 +1,30 @@
+<!doctype html>
 <html>
-  <body>
+<head>
+    <meta charset="utf-8">
+    <title>Demo</title>
+</head>
+<body>
+    <script src="jquery.js"></script>
     <script src="src/thermostat.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-    <button type="button" class="btn btn-primary">Temperature</button>
-    <button type="button" class="btn btn-primary">Up</button>
-    <button type="button" class="btn btn-primary">Down</button>
-    <button type="button" class="btn btn-primary">PowerSaving</button>
-    <button type="button" class="btn btn-primary">Status</button>
-    <button type="button" class="btn btn-primary">Reset</button>
-    <button type="button" class="btn btn-primary">Usage</button>
-  </body>
+    <script src="src/thermostatController.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        updateTemp()
+        showStatus()
+        currentUsage()
+      })
+    </script>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+      <h1>Temperature: <input type="text" id="temperature" value="" readonly></input></h1>
+      <button type="button" class="btn btn-primary" onclick="increaseTemp();">Up</button>
+      <button type="button" class="btn btn-primary" onclick="decreseTemp();">Down</button>
+      <button type="button" class="btn btn-primary" onclick="reset();">Reset</button>
+      <button type="button" class="btn btn-primary" onclick="currentUsage();">Usage</button>
+      <h1>Usage: <input type="text" id="usage" value="" readonly></input></h1>
+      <button type="button" class="btn btn-primary" onclick="powerSavingChange();">PowerSaving</button>
+      <button type="button" id="Status" class="btn btn-primary">Status</button>
+</body>
 </html>
