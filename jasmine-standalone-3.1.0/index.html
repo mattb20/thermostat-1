@@ -5,7 +5,7 @@
     <title>Demo</title>
 </head>
 <body>
-    <script src="jquery.js"></script>
+  <div>
     <script src="src/thermostat.js"></script>
     <script src="src/thermostatController.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
@@ -16,7 +16,7 @@
         showStatus()
         currentUsage()
       })
-    </script>
+      </script>
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
       <h1>Temperature: <input type="text" id="temperature" value="" readonly></input></h1>
       <button type="button" class="btn btn-primary" onclick="increaseTemp();">Up</button>
@@ -26,5 +26,12 @@
       <h1>Usage: <input type="text" id="usage" value="" readonly></input></h1>
       <button type="button" class="btn btn-primary" onclick="powerSavingChange();">PowerSaving</button>
       <button type="button" id="Status" class="btn btn-primary">Status</button>
+    </div>
+    <div id='currentweather'></div>
+    <script>
+    $.get('http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=55be8e45d31d5691c6c5ca44aaa7ff86&mode=html', function ( data ) {
+      $("#currentweather").html(data);
+    });
+    </script>
 </body>
 </html>
