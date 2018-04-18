@@ -16,6 +16,7 @@ function decreseTemp() {
 function powerSavingChange() {
   t.powerSaving()
   showStatus()
+  updateTemp()
 }
 function reset() {
   t.reset()
@@ -32,4 +33,8 @@ function status() {
 function showStatus() {
     var status = t.powerSavingStatus()
     document.getElementById('Status').innerText = status
+    if (status === 'On')
+    document.getElementById('Status').style.background = "green"
+    else if (status === 'Off')
+    document.getElementById('Status').style.background = "red"
 }

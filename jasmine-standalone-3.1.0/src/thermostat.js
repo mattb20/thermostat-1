@@ -18,10 +18,14 @@ Thermostat.prototype.down = function() {
 }
 Thermostat.prototype.powerSaving = function(){
   this.saver_switch = Math.abs(this.saver_switch - 1)
-  if (this.saver_switch === 1)
-  this.maximumTemperature = 25
-  else
-  this.maximumTemperature = 32
+  if (this.saver_switch === 1 && this.temperature > 25){
+    this.maximumTemperature = 25
+    this.temperature = 25
+  } else if (this.saver_switch === 1) {
+    this.maximumTemperature = 25
+  } else {
+    this.maximumTemperature = 32
+  }
 }
 Thermostat.prototype.reset = function() {
   this.temperature = 20;
